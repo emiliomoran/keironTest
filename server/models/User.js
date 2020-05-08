@@ -5,6 +5,7 @@ var UserType = require("./UserType");
 
 var nametable = "user";
 
+//Creating model UserType
 var User = sequelize.define(nametable, {
   name: {
     type: DataTypes.STRING,
@@ -28,6 +29,7 @@ var User = sequelize.define(nametable, {
   },
 });
 
+//Set relationship oneToMany
 UserType.hasMany(User);
 User.belongsTo(UserType);
 

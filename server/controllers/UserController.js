@@ -10,10 +10,12 @@ sequelize.sync();
 const controllers = {
   create: async (req, res, next) => {
     try {
-      console.log(req.body);
+      //console.log(req.body);
       const { name, username, password, usertypeId } = req.body;
+
+      //Hashing password
       const pass_hash = await bcrypt.hash(password, 10);
-      console.log(req.body);
+      //console.log(req.body);
       const reg = await User.create({
         name: name,
         username: username,
@@ -66,6 +68,7 @@ const controllers = {
       next(error);
     }
   },
+  //List only tickets by user with type Usuario
   listUser: async (req, res, next) => {
     try {
       const reg = await User.findAll({
@@ -128,11 +131,13 @@ const controllers = {
         where: { username: req.body.username },
         include: [UserType],
       });
-      //console.log("user", user);
+
+      //Checking if user exists
       if (user) {
-        //Exist user
         let match = await bcrypt.compare(req.body.password, user.password);
+        //Checking password
         if (match) {
+          //Generating token by user
           let tokenReturn = await token.encode(
             user.id,
             user.usertype.name,
@@ -148,7 +153,6 @@ const controllers = {
             },
             tokenReturn,
           });
-          //res.json("Correct password");
         } else {
           res.status(404).send({
             message: "Incorrect password",

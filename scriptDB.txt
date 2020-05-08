@@ -1,0 +1,2 @@
+create database keiron;
+GRANT ALL ON keiron.* TO 'keironuser'@'localhost' IDENTIFIED BY 'k31r0n' WITH GRANT OPTION;

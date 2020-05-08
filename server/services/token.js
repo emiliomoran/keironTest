@@ -2,6 +2,7 @@ var jwt = require("jsonwebtoken");
 var User = require("../models/User");
 var UserType = require("../models/UserType");
 
+//Generating new token if exists but was expired
 const checkToken = async (token) => {
   let _id = null;
   try {

@@ -6,21 +6,13 @@ const ticketRouters = require("./routes/TicketRoute");
 
 const app = express();
 
-app.use(cors());
-
 //Settings
 app.set("port", process.env.PORT || 8080);
-
-//Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-/* app.use("/", (req, res) => {
-  res.send("Hello World form NodeJS express.");
-}); */
 
-//importing route
-
-//Route
+//Routes
 app.use("/user-type", userTypeRouters);
 app.use("/user", userRouters);
 app.use("/ticket", ticketRouters);

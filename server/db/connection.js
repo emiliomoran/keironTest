@@ -1,8 +1,8 @@
 var Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(
-  "keiron", // database
-  "keironuser", // user / usuario
+  "keiron", // database name
+  "keironuser", // user
   "k31r0n", //password
   {
     host: "localhost",

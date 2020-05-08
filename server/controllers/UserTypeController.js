@@ -7,9 +7,9 @@ sequelize.sync();
 const controllers = {
   create: async (req, res, next) => {
     try {
-      console.log(req.body);
+      //console.log(req.body);
       const { name } = req.body;
-      console.log("UserType name ", name);
+      //console.log("UserType name ", name);
       const reg = await UserType.create({
         name: name,
       });

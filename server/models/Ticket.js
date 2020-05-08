@@ -5,6 +5,7 @@ var User = require("./User");
 
 var nametable = "ticket";
 
+//Creating model UserType
 var Ticket = sequelize.define(nametable, {
   request: {
     type: DataTypes.BOOLEAN,
@@ -21,6 +22,7 @@ var Ticket = sequelize.define(nametable, {
   },
 });
 
+//Set relationship oneToMany
 User.hasMany(Ticket);
 Ticket.belongsTo(User);
 

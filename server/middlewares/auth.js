@@ -1,5 +1,6 @@
 var tokenService = require("../services/token");
 
+//Functions to validate routers by user type
 const auth = {
   verifyAdmin: async (req, res, next) => {
     if (!req.headers.token) {
@@ -7,9 +8,8 @@ const auth = {
         message: "Token not found",
       });
     }
-    //console.log("headers", req.headers);
     const response = await tokenService.decode(req.headers.token);
-    console.log("decode", response);
+    //console.log("decode", response);
     if (response.type === "Administrador") {
       next();
     } else {

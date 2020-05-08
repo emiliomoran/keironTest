@@ -8,9 +8,9 @@ sequelize.sync();
 const controllers = {
   create: async (req, res, next) => {
     try {
-      console.log(req.body);
+      //console.log(req.body);
       const { request, userId } = req.body;
-      console.log(req.body);
+      //console.log(req.body);
       const reg = await Ticket.create({
         request: request,
         userId: userId,
@@ -57,6 +57,7 @@ const controllers = {
       next(error);
     }
   },
+  //List only tickets by user
   listUser: async (req, res, next) => {
     try {
       const { id } = req.params;
