@@ -72,10 +72,17 @@ const controllers = {
   listUser: async (req, res, next) => {
     try {
       const reg = await User.findAll({
-        where: {
+        /* where: {
           usertypeId: 2,
-        },
-        include: [UserType],
+        }, */
+        include: [
+          {
+            model: UserType,
+            where: {
+              name: "Usuario",
+            },
+          },
+        ],
         attributes: { exclude: ["password"] },
       });
 
