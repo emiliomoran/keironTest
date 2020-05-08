@@ -14,4 +14,4 @@ Steps:
 Steps:
 1) cd client
 2) yarn install
-3) yarn dev
+3) yarn start
