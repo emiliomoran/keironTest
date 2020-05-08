@@ -1,5 +1,9 @@
 # keironTest
 
+# DB (MySQL)
+Steps:
+1) Copy the content of scriptDB.txt file to create database and user with privileges
+
 # Server
 Steps:
 1) cd server
